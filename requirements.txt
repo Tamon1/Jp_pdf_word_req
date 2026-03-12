@@ -1,0 +1,13 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+python-multipart==0.0.9
+
+pymupdf==1.24.10
+pillow==10.4.0
+pytesseract==0.3.13
+
+sudachipy==0.6.8
+sudachidict_core==20240409
+
+wordcloud==1.9.3
+openpyxl
