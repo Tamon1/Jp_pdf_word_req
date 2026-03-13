@@ -3,12 +3,15 @@ import fitz
 import pytesseract
 from PIL import Image
 import os
+import shutil
 
-if not os.path.exists(r"C:\Program Files\Tesseract-OCR\tesseract.exe"):
+
+tesseract_path = shutil.which("tesseract")
+
+if tesseract_path:
+    pytesseract.pytesseract.tesseract_cmd = tesseract_path
+else:
     raise RuntimeError("Tesseract not found")
-
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-print(pytesseract.pytesseract.tesseract_cmd)
 
 def ocr_pdf(pdf_bytes, dpi=250):
     doc = fitz.open(stream=pdf_bytes, filetype="pdf")
